@@ -1,33 +1,40 @@
 \section{Results}
-Here is where you will describe your significant results. Typically, you will place a number of figures in the results section to illustrate your findings. For example, I tried to use TiKZ to create a simple illustration of the factor structure of general intelligence, but I don't think it's very good (see Figure~\ref{fig:TikZmodel}).
+\subsection{Emotional Awareness and Expressive Reluctance}
+\subsubsection{Child-Report } The analyses revealed no significant interaction between time x subscales, F(2, 43) = .10, p = .91, ηp2 = .01. Results indicated no significant main effect of time, F(2, 43) = 1.62, p = .21, ηp2 = .07. However, there was a significant main effect for subscale type, F(1, 44) = 20.08, p < .001, ηp2 = .31, indicating differences in levels of poor awareness and expressive reluctance, independent of time. 
+To further investigate these effects, a paired-samples t-test was conducted to compare scores on the poor awareness and expressive reluctance subscales. Results indicated that the average scores on the expressive reluctance subscales (M = 22.94, SD = 6.26) were significantly higher than average scores on the poor awareness subscales (M = 19.62, SD = 7.28), t(45) = 4.48, p < .001. See Table  for child-report means and standard deviations. 
+ (see Figure~\ref{fig:TikZmodel}).
 
-\begin{figure}[ht!]
+\begin{figure}[htbp]
 \centering
-\begin{tikzpicture}[scale=.5,transform shape,auto,node distance=.9cm,
-latent/.style={circle,draw,very thick,inner sep=0pt,minimum size=25mm,align=center},
-manifest/.style={rectangle,draw,very thick,inner sep=0pt,minimum width=30mm,minimum height=10mm},
-paths/.style={->, ultra thick, >=stealth'}]
-\node [manifest] (SI) at (0,0) {Similarities};
-\node [manifest] (VO) [below=of SI] {Vocabulary};
-\node [manifest] (CO) [below=of VO] {Comprehension};
-\node [manifest] (IN) [below=of CO] {Information};
-\node [manifest] (WR) [below=of IN] {Word Reasoning};
-\node [manifest] (BD) [below=of WR] {Block Design};
-\node [manifest] (PS) [below=of BD] {Picture Concepts};
-\node [latent] (g) [left=2.5cm of IN] {\emph{g}};
-\node [latent] (Gc) [right=4.5cm of CO] {Verbal\\ Comprehension};
-\node [latent] (Gv) [right=4.5cm of BD] {Visual\\ Spatial};
-\foreach \all in {SI, VO, CO, IN, WR, BD, PS}
-{
-\draw [paths] (g.east) to node { } (\all.west);
+\resizebox{\textwidth}{!}{%
+\begin{tikzpicture}[
+  node distance=18mm,
+  box/.style={draw, rounded corners=2mm, align=center, inner sep=5pt, minimum width=3.2cm},
+  >={Latex}
+]
+% Nodes
+\node[box, fill=gray!10] (int) {Modified\\ TINT:WSA\\ (6 sessions)};
+\node[box, right=18mm of int, fill=gray!10] (skills) {Emotion Competencies\\[1pt]
+\footnotesize Awareness $\uparrow$\\ Expression reluctance $\downarrow$\\ Inhibition $\downarrow$\\ Dysregulation $\downarrow$\\ Coping $\uparrow$};
+\node[box, right=18mm of skills, fill=gray!10] (symp) {Psychopathology\\[1pt]
+\footnotesize Internalizing $\downarrow$\\ Externalizing $\downarrow$};
+
+% Arrows without labels
+\draw[->, line width=0.9pt] (int) -- (skills);
+\draw[->, line width=0.9pt] (skills) -- (symp);
+
+% Moderators / emotion types
+\node[below=14mm of skills, align=center, font=\footnotesize] (emo)
+{Emotion types: Anger \quad Sadness \quad Worry};
+\draw[->, dashed] (emo.north) -- (skills.south);
+
+% Notes (timepoints)
+\node[below=14mm of int, font=\footnotesize, align=center] (tpts)
+{Assessments: T1 (pre), T2 (post), T3 (1-mo follow-up)};
+\end{tikzpicture}%
 }
-\foreach \vc in {SI, VO, CO, IN, WR}
-\draw [paths] (Gc.west) to node {} (\vc.east);
-\foreach \vs in {BD, PS}
-\draw [paths] (Gv.west) to node {} (\vs.east);
-\draw [paths, <->] (Gc) edge[bend left] node [left] {} (Gv);
-\end{tikzpicture}
-\caption{\label{fig:TikZmodel} Here is a sample of a TikZ model.}
+\caption{Conceptual model: The modified TINT:WSA aims to enhance adolescents' emotion competencies, which in turn reduce internalizing and externalizing symptoms. }
+\label{fig:conceptual_model}
 \end{figure}
 
 In other cases, you might have an image file you want to bring into your document.  That is pretty easy to do as well as you can see in Figure \ref{fig:gearhead}.
@@ -40,17 +47,23 @@ In other cases, you might have an image file you want to bring into your documen
 
 Sometimes You may also want to display some tabular data in order to illustrate patterns in your data. Fortunately, You can do this right in \LaTeX.
 
-\begin{table}[h!]
+\begin{table}[htbp]
 \centering
-\caption{\label{tab:RTmeans}Reaction times over training in the experimental and control groups.}
-\begin{tabular}{l l c c c}
- \toprule
-                          &              & \multicolumn{3}{c}{Week}\\
-  \cmidrule{3-5}
-                          &              & {One}           & {Two}           & {Three}\\
-  \cmidrule{3-5}
-  \multirow{ 2}{*}{Group} & Experimental &     1008.435    &      986.76     &      859.1     \\
-                          & Control      &     996.23      &      901.67     &      1002.23   \\
-  \bottomrule
- \end{tabular}
+\caption{Means, Standard Deviations, and RM-ANOVAs for the Child-Report Outcomes}
+\label{tab:child_outcomes}
+\begin{tabular}{lccccccccc}
+\toprule
+\multirow{2}{*}{Measure} & \multicolumn{2}{c}{T1} & \multicolumn{2}{c}{T2} & \multicolumn{2}{c}{T3} & \multirow{2}{*}{F} & \multirow{2}{*}{p} & \multirow{2}{*}{$\eta_p^2$} \\
+ & M & SD & M & SD & M & SD & & & \\
+\midrule
+\textbf{EESC} & & & & & & & & & \\
+\quad PA & 20.27 & 8.00 & 19.31 & 7.62 & 19.29 & 7.72 & 1.01 & .37 & .05 \\
+\quad ER & 23.60 & 6.24 & 22.78 & 7.23 & 22.44 & 6.85 & 1.12 & .34 & .06 \\
+\textbf{CAMS} & & & & & & & & & \\
+\quad Inh. & 1.88 & 0.59 & 1.84 & 0.57 & 1.91 & 0.57 & 0.63 & .51 & .01 \\
+\quad Dys. & 1.61 & 0.45 & 1.70 & 0.59 & 1.67 & 0.64 & 0.91 & .40 & .02 \\
+\quad Cop. & 2.11 & 0.53 & 2.28 & 0.48 & 2.26 & 0.56 & 3.53 & .04 & .14 \\
+\bottomrule
+\end{tabular}
 \end{table}
+
